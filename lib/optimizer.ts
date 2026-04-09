@@ -310,7 +310,7 @@ export const calculatePaycheckLoads = (
     if (assignedIndex !== -1) {
       periods[assignedIndex].totalLoad += payment.amount;
       periods[assignedIndex].bills.push(payment);
-      periods[assignedIndex].remainingAfterBills -= payment.amount;
+      periods[assignedIndex].remainingAfterBills = (periods[assignedIndex].remainingAfterBills ?? 0) - payment.amount;
     } else {
       carryover.totalLoad += payment.amount;
       carryover.bills.push(payment);
